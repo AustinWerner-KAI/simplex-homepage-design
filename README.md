@@ -60,3 +60,7 @@ The final typography critique is incorporated in the implementation specificatio
 ## Current direction
 
 Desktop website only. The primary mockup uses deep ink text, cobalt actions, blue links and clean ice-blue surfaces. The earlier desktop/mobile image remains as an archived iteration. Color values are implementation targets, not measured raster values.
+
+## Latest desktop audit
+
+The modern-blue desktop mockup is the current visual baseline. The [latest audit](audit-and-validation.md#current-desktop-audit--4-october-2026) records six open refinements: distinct colour roles, consistent lower-page spacing, differentiated heading weights, precise diagram callouts, approved original imagery and a simpler final download row. Each finding includes priority, remedy and acceptance criteria. The [design specification](design-specification.md#next-desktop-refinement-requirements) incorporates these requirements. They are documented next steps, not completed image edits.

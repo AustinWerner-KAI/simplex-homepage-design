@@ -21,7 +21,7 @@ These are starting values, not extracted measurements or universal rules. Keep q
 
 ## Layout and visual roles
 
-Use navy for primary text and actions, brighter blue for links and pale sky/white for surfaces. The globe and gold arcs carry expression; their detailed regions should remain away from reading areas. Preserve the isometric network's detail while adding callouts anchored to actual devices and server racks.
+Use ink navy for headings, dark slate for body copy, cobalt for primary actions, consistent blue for links and pale sky/white for surfaces. The globe and gold arcs carry expression; their detailed regions should remain away from reading areas. Preserve the isometric network's detail while adding callouts anchored to actual devices and server racks.
 
 Start with a maximum content width around 1200px; desktop horizontal margins around 64–80px and mobile margins around 24px. Use roughly 96–128px desktop section padding and 64–80px mobile section padding where content warrants it. Adjust at intermediate widths instead of enforcing fixed heights. Keep tighter spacing within groups and larger spacing between jobs.
 
@@ -49,7 +49,8 @@ The current deliverable is the desktop website only; earlier mobile guidance is 
 
 | Role | Target |
 | --- | --- |
-| Primary text | #10234A |
+| Heading text | #10234A |
+| Body and explanatory labels | #334155 |
 | Primary action | #245CFF |
 | Links | #2057D4 |
 | Cyan accent | #40C8F4 |
@@ -58,3 +59,16 @@ The current deliverable is the desktop website only; earlier mobile guidance is 
 | Divider | #DCE6F3 |
 
 Use cyan sparingly. Keep gold arcs as warm contrast and preserve natural globe colors. Check actual implemented contrast, especially fine text and interactive states.
+
+## Next desktop refinement requirements
+
+The current raster is the baseline; these requirements address the open [desktop audit findings D01–D06](audit-and-validation.md#current-desktop-audit--4-october-2026).
+
+- Separate text and interaction colour roles using the palette above. Diagram labels and qualifications use the body colour; bright blue signals an action.
+- Preserve a consistent desktop section rhythm, starting around 96–128px vertical padding for main sections. Combine roadmap and support in one project section; use a clear 40–56px internal gap as a starting point. Adjust with real content rather than fixed heights.
+- Hero uses semibold; section headings start at medium weight; body copy uses regular. Retain the existing type-scale targets and verify the actual licensed font.
+- Anchor network leaders precisely to phones and server racks. Do not imply interactivity through decorative label colours.
+- Replace generated globe/network recreations with approved original artwork for production; retain natural globe colour and gold arcs.
+- Final CTA contains heading, Download SimpleX and All platforms only. Remove the repeated platform list there, retain platform access, and allow generous spacing.
+
+These are proposed implementation values and acceptance requirements, not measurements of the current generated image.
