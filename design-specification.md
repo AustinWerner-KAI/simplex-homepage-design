@@ -42,3 +42,19 @@ Hero: copy and action on the quiet sky; globe low/right. Network: paired explana
 Validate at 390px, an intermediate width such as 768px, and 1280px or wider, plus browser zoom and text expansion. Do not hide decision-critical qualifications on narrow screens. The image's side-by-side presentation is not a responsive implementation.
 
 Use semantic headings and navigation, meaningful image alternatives, descriptive link names and decorative-image handling. Target WCAG 2.2 AA. Check text contrast (generally 4.5:1, or 3:1 for qualifying large text), relevant non-text contrast, keyboard access and reflow. Prefer generous mobile targets, around 44px as a design goal; WCAG's 24px minimum criterion has exceptions and is not the same recommendation.
+
+## Updated scope and color specification
+
+The current deliverable is the desktop website only; earlier mobile guidance is retained as historical context and is not part of the current design scope.
+
+| Role | Target |
+| --- | --- |
+| Primary text | #10234A |
+| Primary action | #245CFF |
+| Links | #2057D4 |
+| Cyan accent | #40C8F4 |
+| White surface | #FFFFFF |
+| Ice surface | #F2F7FF |
+| Divider | #DCE6F3 |
+
+Use cyan sparingly. Keep gold arcs as warm contrast and preserve natural globe colors. Check actual implemented contrast, especially fine text and interactive states.

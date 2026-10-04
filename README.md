@@ -2,9 +2,9 @@
 
 A spacious, imagery-led homepage proposal for [SimpleX Chat](https://simplex.chat/), helping newcomers understand private messaging, inspect its evidence and start a conversation.
 
-**Status:** independent design study, 4 October 2026. Static desktop/mobile mockup and implementation guidance; not an official SimpleX release or functioning website.
+**Status:** independent design study, 4 October 2026. Static desktop mockup and implementation guidance; not an official SimpleX release or functioning website.
 
-![Complete desktop and mobile homepage concept](homepage-desktop-mobile.png)
+![Complete desktop homepage concept](homepage-desktop.png)
 
 ## Design philosophy
 
@@ -29,14 +29,14 @@ The page follows the visitor's uncertainty: **What is it? → How is it differen
 | Directory | Where can I find people? | Offers a clear directory entry point. Suggested category labels demonstrate navigation without inventing named communities or usage figures. |
 | Roadmap and support | Where is the project going, and how can I help? | Keeps future plans concise and funding secondary to the product journey. |
 | Final download | Am I ready to try it? | Repeats the useful action after explanation and proof, without introducing a new pitch. |
-| Footer | Where is the supporting information? | Groups product, trust and project destinations; mobile groups stack vertically. |
+| Footer | Where is the supporting information? | Groups product, trust and project destinations; supporting destinations stay grouped. |
 
 ## Quality decisions
 
 - Blue/cyan identity and luminous network imagery preserve recognisability.
 - Quiet surfaces behind text, consistent alignment and fewer decorative elements reduce competing signals.
 - Technical quality comes from named evidence, accurate scope, understandable architecture and accessible detail—not unsupported security superlatives.
-- Desktop groups related copy and controls; mobile recomposes the same sequence instead of shrinking a desktop grid.
+- Desktop groups related copy and controls with a consistent editorial grid. Mobile design is outside the current scope.
 - Supporting information stays available through Guide, security findings, privacy, transparency and source-code routes.
 
 ## Evidence and provenance
@@ -56,3 +56,7 @@ The mockup was generated and iteratively edited with OpenAI's built-in image gen
 - [Generation brief](generation-brief.md): reproducible creative direction.
 
 The final typography critique is incorporated in the implementation specification. Onboarding explicitly includes link and QR-code invitations, consistent with the [Quick start guide](https://simplex.chat/docs/guide/readme.html#connect-to-friends). The raster mockup still cannot guarantee exact fonts, text sizes, contrast, responsive behavior or working links.
+
+## Current direction
+
+Desktop website only. The primary mockup uses deep ink text, cobalt actions, blue links and clean ice-blue surfaces. The earlier desktop/mobile image remains as an archived iteration. Color values are implementation targets, not measured raster values.
