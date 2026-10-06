@@ -18,6 +18,8 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000`.
 
+Hosted preview: [claude.ai/artifact/CUXGkNVJAmLZWmWaKVqEHF](https://claude.ai/artifact/CUXGkNVJAmLZWmWaKVqEHF). It is private until the owner shares it from the page's Share menu.
+
 ## What is in the repo
 
 | File | Purpose |
