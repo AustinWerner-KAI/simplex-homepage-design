@@ -6,6 +6,10 @@ An independent homepage design for [SimpleX Chat](https://simplex.chat/). It pre
 
 Status: design concept, October 2026. Not an official SimpleX release. Not affiliated with or endorsed by the SimpleX Chat project.
 
+![The hero at 1440px: "Talk to anyone. Be no one." above the live demo of what each phone and the server see](renders/be-no-one-desktop-hero.png)
+
+Full page: [desktop](renders/be-no-one-desktop.png) · [mobile](renders/be-no-one-mobile.png)
+
 ## View it
 
 Open [`index.html`](index.html) in a browser. There is no build step, no framework and no dependencies. Everything the page needs is in this repo.
