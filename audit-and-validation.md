@@ -1,5 +1,41 @@
 # Audit and validation
 
+## Blue-sky concept — 6 October 2026 (night)
+
+Artifact: [concepts/blue-sky/index.html](concepts/blue-sky/index.html), renders in [renders/](renders/) (blue-sky-desktop.jpg, blue-sky-mobile.jpg). A separate exploration, not a replacement for PR #1's page. Brief from Kai: treat SimpleX as the next trillion-dollar idea; blue-sky modernisation.
+
+**Thesis (design judgement).** The idea worth a trillion dollars is not "a private messenger". It is the first network where no one has an identity. The page sells that shift, and proves it in the first screen instead of describing it.
+
+**What is new:**
+
+- Hero is type only: "Talk to anyone. Be no one." No stock imagery. One action, plus one quiet proof line (open source, Trail of Bits, F-Droid).
+- A live demo replaces the globe: one conversation in three views. Your phone and their phone show the chat; the server column shows only encrypted noise on one-off queues, with sender and recipient "unknown".
+- A ledger shows what identifies you on each kind of network (phone number, server username, global public key) against SimpleX: "Nothing." Categories come from SimpleX's own protocol comparison; example IDs are illustrative (the phone number is from Ofcom's fictional drama range).
+- Then/now "shift" section, a three-fact proof section, and a store-badge close.
+- Near-black canvas, one accent (#4FC3FF), self-hosted Manrope at display sizes, system mono for the server log.
+
+### Self-audit
+
+| Check | Result |
+| --- | --- |
+| Claims | Every product claim traces to simplex.chat or its docs: no user IDs (not even random), servers cannot see who talks to whom, anyone can run servers, Trail of Bits 2022 and 2024, open source, reproducible builds. No invented metrics, quotes or endorsements. The demo is labelled as an illustration. |
+| Server demo accuracy | Shows per-queue random addresses and ciphertext, which matches SMP's design of one-off queues. It simplifies: servers can still observe traffic timing and connection metadata such as IP addresses; SimpleX's private message routing and Tor reduce this. The caption links to the protocol overview. Open question for SimpleX: whether to name that limit on the page. |
+| Contrast | Text 18.6:1, secondary 9.3:1, small labels 5.7:1, accent 10.2:1, dark text on accent bubbles 9.6:1. Dimmed heading halves raised to #5E6A88 (3.7:1, large text). Decorative server log is hidden from screen readers. |
+| No-JS and reduced motion | Hero text and all chat bubbles are visible without JavaScript (checked with JS disabled). Reduced motion shows all messages and a static log, no sweep. |
+| Reflow | No horizontal scroll at 320, 390 or 1440px. Demo stacks vertically on phones. |
+| Weight | No images in the hero. One 25KB font file for English. Badges are small SVGs. |
+| Tap targets | Buttons 56px; proof links about 36px tall (above the 24px minimum, below the 44px goal; worth enlarging); nav collapses to one 44px pill on phones. |
+
+### Risks to discuss
+
+1. "Be no one" is provocative. Strong for this audience; some newcomers may read it as anonymity for wrongdoing. Test against "Talk to anyone. Stay unknown."
+2. Dark, type-only pages feel premium but can feel cold. The live chat bubbles carry the warmth; keep them.
+3. Naming Signal in the ledger invites comparison. SimpleX does this in its own docs, but it should stay factual and sourced.
+
+### Untested
+
+Real devices, screen readers on the animated demo, comprehension of the demo by newcomers, translated layouts.
+
 ## Hero v2 and typography — 6 October 2026 (evening)
 
 Scope: the hero rebuild Kai approved after the re-audit, plus a typography review he asked for ("who might download, what is familiar to them"). Rendered at 320, 390, 768 and 1280px.
