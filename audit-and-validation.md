@@ -1,5 +1,54 @@
 # Audit and validation
 
+## Hero v2 and typography — 6 October 2026 (evening)
+
+Scope: the hero rebuild Kai approved after the re-audit, plus a typography review he asked for ("who might download, what is familiar to them"). Rendered at 320, 390, 768 and 1280px.
+
+### Who downloads, and what is familiar to them
+
+| Visitor | What they already know | Typography consequence |
+| --- | --- | --- |
+| Existing SimpleX users and the privacy community (Privacy Guides, Whonix, Kuketz Blog, heise readers, all listed on simplex.chat) | SimpleX's own site, which uses GT Walsheim for headings and Manrope for body text, both self-hosted. | Use Manrope so the concept reads as SimpleX, not a new brand. GT Walsheim is commercial (Grilli Type) and cannot be shipped in this repo; spec it for production headings if SimpleX applies its own licence. |
+| Privacy-conscious newcomers leaving WhatsApp or Telegram | Messenger and app-store conventions: sentence case, system UI fonts in the apps themselves. | Sentence-case eyebrow instead of tracked capitals. Bold, plain hero. Official store badges, not text. |
+| Developers and self-hosters | GitHub, protocol specs, monospace for code and versions. | Monospace only where it marks a technical artefact (report years). Not used for prose. |
+| People on low-end Android phones or slow, filtered networks; simplex.chat is offered in more than a dozen languages including Russian, Arabic and Japanese | Whatever their device renders well. | Body at regular weight, never light: the live site sets body copy at Manrope 200 (ExtraLight), which thins out on low-density screens. Subsets for Latin, Latin Extended, Cyrillic and Greek; Arabic and CJK fall back to system and Noto fonts. Only the Latin file (25KB) loads for an English reader. |
+| Everyone in this audience | They choose SimpleX to avoid third parties seeing their traffic. | Removed Google Fonts. Embedding Google Fonts sends each visitor's IP address to Google; a Munich court awarded damages for exactly this in 2022 (LG München I, 3 O 17493/20, 20 January 2022). The live simplex.chat self-hosts its fonts; the concept now does too. Closes D09. |
+
+### Type system now in the code
+
+Manrope variable (SIL OFL), self-hosted from `assets/fonts/`, `font-display: swap`. Hero 700, hero subline 500, section headings 600, buttons and labels 600, body 400 at 18px / 1.6. System monospace for report years. Fallback: system-ui, Segoe UI, Roboto, Noto Sans, Noto Sans Arabic.
+
+### Findings closed in this round
+
+| ID | Change |
+| --- | --- |
+| R01 | Headline is now "Own your network. Not even the servers know who you talk to." Matches SimpleX's own claim that servers cannot see who you talk to. Eyebrow uses SimpleX's own line, "The first network without user IDs". |
+| R03 | Funding line now SimpleX's wording: "Funded by its users. Large channels and communities will pay for their servers." |
+| R04 | Proof row in the hero: "Reviewed by Trail of Bits, security reviews 2022 and 2024" (links to the evidence section) and "Open source on GitHub, apps, servers and protocol". Visible inside the first 800px screen at 1280px. |
+| R06 | "How privacy works" now links to the overview the live site uses (simplexmq overview-tjr.md on GitHub). |
+| R10 | Focus ring is ink (#10234A) on light bands, cyan on dark bands. |
+| R11 | Nav Download button keeps its padding. |
+| R12 | Headline fits one line at 1280px; text-wrap: balance on headings. |
+| R13 | Chat preview label corrected to three messages. |
+| R15 | App Store, Google Play and F-Droid badges (SimpleX's own badge files) in the hero and the final CTA. Text links for desktop, the GitHub APK and the TestFlight beta. |
+| R16 | Open source in the hero, both repos in the evidence section, "Open-source project" in the footer. |
+
+### Still open
+
+R02 (network image says "peer-to-peer"), R05 (comparison table), R07 (directory links), R09 (table still overflows at 320px: 329px), R17 (publications strip), R18 (socials), D05 (image rights), D07 (text in image), D10 (binary files: badges, fonts and images still need adding to the branch from the zip).
+
+### Checks this round
+
+- No horizontal overflow at 390, 768 or 1280px. 320px still overflows by 9px (R09).
+- Text contrast unchanged and passing. Focus ring now 15.4:1 on white.
+- Mobile menu still opens, closes on Escape and returns focus.
+- Small targets: only links inside the "Also for…" sentence and the footer note are under 24px tall. Links inside a sentence are exempt under WCAG 2.2 SC 2.5.8; line height gives them 26px+ of separation.
+- Rendering used Linux fallback fonts for monospace (Liberation Mono). On macOS and iOS visitors see SF Mono.
+
+### Untested
+
+Real devices, Arabic and Cyrillic rendering, screen readers, load time on a throttled connection.
+
 ## Coded homepage v1 re-audit — 6 October 2026 (later)
 
 Scope: branch `coded-homepage-v1` (PR #1), rendered locally with its assets at 320, 390, 640 (200% zoom) and 1280px. Question asked: does the page deliver the hero and the evidence?

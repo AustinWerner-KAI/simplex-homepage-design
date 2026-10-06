@@ -2,7 +2,7 @@
 
 ## Implementation note (6 October 2026)
 
-[index.html](index.html) implements this specification with Inter 400/500/600, a 1200px content width, clamp-based section padding and the colour table below. The hero is a dark band (#0B1733) with white copy on a solid surface and the globe image beside it; text never overlaps the image. Mobile is back in scope from this version.
+[index.html](index.html) implements this specification with self-hosted Manrope (400 body, 600 section headings, 700 hero; see the typography rationale in the [audit](audit-and-validation.md#who-downloads-and-what-is-familiar-to-them)), a 1200px content width, clamp-based section padding and the colour table below. The hero is a dark band (#0B1733) with white copy on a solid surface and the globe image beside it; text never overlaps the image. Mobile is back in scope from this version.
 
 ## Brief
 
@@ -12,7 +12,7 @@ The tension is adoption versus explaining complex privacy architecture and fundi
 
 ## Typography
 
-Use one appropriately licensed sans-serif family with regular, medium and semibold weights. Choose the exact family against SimpleX's established assets before implementation; the raster image does not identify a production font.
+Use Manrope (SIL OFL), self-hosted, matching the body face on simplex.chat. For production, SimpleX may swap headings to GT Walsheim, which it already licenses. Never load fonts from a third-party CDN. Body text is never lighter than 400.
 
 | Role | Desktop starting size | Mobile starting size | Treatment |
 | --- | --- | --- | --- |

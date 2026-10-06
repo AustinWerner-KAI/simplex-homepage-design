@@ -2,7 +2,7 @@
 
 A spacious, imagery-led homepage proposal for [SimpleX Chat](https://simplex.chat/), helping newcomers understand private messaging, inspect its evidence and start a conversation.
 
-**Status:** independent design study. 6 October 2026: first coded homepage ([index.html](index.html)), responsive from 390px up, with a dark sovereignty hero and a light page below. Not an official SimpleX release.
+**Status:** independent design study. 6 October 2026: first coded homepage ([index.html](index.html)), responsive from 390px up, with a dark sovereignty hero carrying store badges, the Trail of Bits reviews and the open-source link, and a light page below. Type is self-hosted Manrope. Not an official SimpleX release.
 
 ![Coded homepage v1, desktop](renders/coded-v1-desktop.jpg)
 
