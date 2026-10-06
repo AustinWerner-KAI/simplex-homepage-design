@@ -6,9 +6,7 @@
 <title>SimpleX Chat — private messaging with no user identity and no central server</title>
 <meta name="description" content="Private messaging with no user identity, no phone number and no central server. Your contacts stay on your device. Connect by invitation. Design concept, not the official site.">
 <link rel="preload" as="image" href="assets/globe-network.webp" media="(min-width: 760px)">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -37,14 +35,29 @@
 <section class="hero" id="top" aria-labelledby="hero-h">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Private messaging</p>
-      <h1 id="hero-h">Your messages.<br>Your network.<br>No one in the middle.</h1>
-      <p class="lede">No user identity. No phone number. No central server. Your contacts stay on your device and you connect by invitation.</p>
+      <p class="eyebrow">The first network without user IDs</p>
+      <h1 id="hero-h">Own your network.<span class="h1-sub">Not even the servers know who you talk to.</span></h1>
+      <p class="lede">No phone number, no username, no account. Your contacts and groups live on your device, and anyone can run the servers.</p>
       <div class="actions">
         <a class="btn btn-primary" href="https://simplex.chat/downloads/">Download SimpleX</a>
-        <a class="link-arrow on-dark" href="#start">How it works</a>
+        <a class="link-arrow on-dark" href="#sovereign">How it works</a>
       </div>
-      <p class="platforms">iOS · Android · macOS · Windows · Linux</p>
+      <ul class="badges" aria-label="Get the app">
+        <li><a href="https://apps.apple.com/us/app/simplex-chat/id1605771084"><img src="assets/badge-app-store.svg" width="119" height="40" alt="Download on the App Store"></a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=chat.simplex.app"><img src="assets/badge-google-play.svg" width="135" height="40" alt="Get it on Google Play"></a></li>
+        <li><a href="https://simplex.chat/fdroid"><img src="assets/badge-f-droid.svg" width="137" height="40" alt="Get it on F-Droid"></a></li>
+      </ul>
+      <p class="platforms">Also for <a href="https://simplex.chat/downloads/">macOS, Windows and Linux</a> · <a href="https://github.com/simplex-chat/simplex-chat/releases/latest/download/simplex-aarch64.apk">Android APK from GitHub</a> · <a href="https://testflight.apple.com/join/DWuT2LQu">iOS beta on TestFlight</a></p>
+      <ul class="proof" aria-label="Why you can trust it">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="#trust"><span class="proof-k">Reviewed by Trail of Bits</span><span class="proof-v">Security reviews, 2022 and 2024</span></a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <a href="https://github.com/simplex-chat"><span class="proof-k">Open source on GitHub</span><span class="proof-v">apps, servers and protocol</span></a>
+        </li>
+      </ul>
     </div>
     <figure class="hero-art">
       <picture>
@@ -76,7 +89,7 @@
           <dd>Contacts, groups and history live on your device, encrypted end to end at every hop.</dd>
         </div>
       </dl>
-      <a class="link-arrow" href="https://simplex.chat/docs/protocol/overview-tjr.html">How privacy works</a>
+      <a class="link-arrow" href="https://github.com/simplex-chat/simplexmq/blob/stable/protocol/overview-tjr.md">How privacy works</a>
       <p class="qualify">Protection depends on your device, settings and threat model.</p>
     </div>
     <figure class="col-art">
@@ -102,7 +115,7 @@
       <a class="link-arrow" href="https://simplex.chat/docs/guide/readme.html#connect-to-friends">Quick start guide</a>
     </div>
     <div class="col-art">
-      <div class="chat-preview" role="img" aria-label="Illustrative chat preview: two short messages and a reply field.">
+      <div class="chat-preview" role="img" aria-label="Illustrative chat preview: three short messages and a reply field.">
         <div class="chat-top"><span>Chat</span></div>
         <div class="bubble in">Hi there!</div>
         <div class="bubble out">Nice to meet you!</div>
@@ -128,7 +141,8 @@
       </tbody>
     </table>
     <p class="qualify">Reviews cover specific components and versions, not every current release.</p>
-    <p class="links-row"><a class="link-arrow" href="https://simplex.chat/security/">Scope, findings and limitations</a><a class="link-arrow" href="https://github.com/simplex-chat/simplex-chat">View source</a></p>
+    <p class="links-row"><a class="link-arrow" href="https://simplex.chat/security/">Scope, findings and limitations</a></p>
+    <p class="links-row"><a class="link-arrow" href="https://github.com/simplex-chat/simplex-chat">App source on GitHub</a><a class="link-arrow" href="https://github.com/simplex-chat/simplexmq">Server and protocol source</a></p>
   </div>
 </section>
 
@@ -161,7 +175,7 @@
     </div>
     <div class="col-text">
       <h2 class="h2-quiet">Support an independent network.</h2>
-      <p class="sub">SimpleX is funded by its users and supporters, not by selling your data.</p>
+      <p class="sub">Funded by its users. Large channels and communities will pay for their servers.</p>
       <p class="links-row"><a class="link-arrow" href="https://github.com/simplex-chat/simplex-chat#please-support-us-with-your-donations">Donate</a><a class="link-arrow" href="https://simplex.chat/#support">Explore investing</a></p>
     </div>
   </div>
@@ -175,6 +189,11 @@
       <a class="btn btn-primary" href="https://simplex.chat/downloads/">Download SimpleX</a>
       <a class="link-arrow" href="https://simplex.chat/downloads/">All platforms</a>
     </div>
+    <ul class="badges badges-final" aria-label="Get the app">
+      <li><a href="https://apps.apple.com/us/app/simplex-chat/id1605771084"><img src="assets/badge-app-store.svg" width="119" height="40" alt="Download on the App Store" loading="lazy"></a></li>
+      <li><a href="https://play.google.com/store/apps/details?id=chat.simplex.app"><img src="assets/badge-google-play.svg" width="135" height="40" alt="Get it on Google Play" loading="lazy"></a></li>
+      <li><a href="https://simplex.chat/fdroid"><img src="assets/badge-f-droid.svg" width="137" height="40" alt="Get it on F-Droid" loading="lazy"></a></li>
+    </ul>
   </div>
 </section>
 
@@ -186,7 +205,7 @@
     <nav aria-label="Product"><h3>Product</h3><a href="https://simplex.chat/downloads/">Downloads</a><a href="https://simplex.chat/docs/guide/readme.html">Guide</a><a href="https://simplex.chat/docs/directory.html">Directory</a></nav>
     <nav aria-label="Trust"><h3>Trust</h3><a href="https://simplex.chat/security/">Security</a><a href="https://simplex.chat/privacy/">Privacy</a><a href="https://simplex.chat/transparency/">Transparency</a></nav>
     <nav aria-label="Project"><h3>Project</h3><a href="https://simplex.chat/blog/">Blog</a><a href="https://github.com/simplex-chat/simplex-chat">Source code</a><a href="https://github.com/simplex-chat/simplex-chat#please-support-us-with-your-donations">Support</a></nav>
-    <p class="legal">Independent design concept, October 2026. Not an official SimpleX Chat release. SimpleX and its marks belong to their owners.</p>
+    <p class="legal"><a href="https://github.com/simplex-chat">Open-source project</a>. Independent design concept, October 2026. Not an official SimpleX Chat release. SimpleX and its marks belong to their owners.</p>
   </div>
 </footer>
 
