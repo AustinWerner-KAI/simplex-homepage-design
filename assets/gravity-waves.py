@@ -86,8 +86,9 @@ css=('.hero{position:relative;isolation:isolate;overflow:hidden}'
  'transform:translate(-50%,-50%) perspective(950px) rotateX(58deg) rotateZ(-18deg);'
  f'background:url("{src}") center/cover no-repeat;'
  '-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 20%,transparent 58%);mask-image:radial-gradient(circle at 50% 50%,#000 20%,transparent 58%);pointer-events:none}'
- '.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0,var(--bg) 28%,transparent 60%),linear-gradient(180deg,var(--bg) 0,transparent 30%);pointer-events:none}'
- '@media (max-width:860px){.hero::before{left:62%;top:640px;width:1000px;height:1000px;transform:translate(-50%,-50%) perspective(600px) rotateX(55deg) rotateZ(-18deg);opacity:.7}.hero::after{background:linear-gradient(180deg,var(--bg) 0,var(--bg) 40%,transparent 70%)}}')
+ '.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0,var(--bg) 38%,transparent 70%),linear-gradient(180deg,var(--bg) 0,transparent 30%);pointer-events:none}'
+ '.hero .node:not(.server){background:rgb(5 7 12/.86)}'
+ '@media (max-width:860px){.hero::before{left:62%;top:700px;width:1000px;height:1000px;transform:translate(-50%,-50%) perspective(600px) rotateX(55deg) rotateZ(-18deg);opacity:.85}.hero::after{background:linear-gradient(180deg,var(--bg) 0,var(--bg) 19%,transparent 33%)}}')
 import re
 marker='/* Hero background:'
 if marker in html:
