@@ -1,66 +1,61 @@
-# SimpleX Chat — homepage design concept
+# SimpleX Chat homepage: design concept
 
-A spacious, imagery-led homepage proposal for [SimpleX Chat](https://simplex.chat/), helping newcomers understand private messaging, inspect its evidence and start a conversation.
+**Talk to anyone. Be no one.**
 
-**Status:** independent design study, 4 October 2026. Static desktop mockup and implementation guidance; not an official SimpleX release or functioning website.
+An independent homepage design for [SimpleX Chat](https://simplex.chat/). It presents SimpleX as what it is: the first network where nobody has a user identity. It proves that claim on the page instead of describing it.
 
-![Complete desktop homepage concept](homepage-desktop.png)
+Status: design concept, October 2026. Not an official SimpleX release. Not affiliated with or endorsed by the SimpleX Chat project.
 
-## Design philosophy
+## View it
 
-The redesign follows **legible agency**: help people understand the offer, interpret meaningful evidence, choose an action and know what to do next. This is a working design synthesis used by the kings-of-website-design workflow, not a validated universal theory.
+Open [`index.html`](index.html) in a browser. There is no build step, no framework and no dependencies. Everything the page needs is in this repo.
 
-The experience should feel technically credible without requiring technical expertise. Preserve SimpleX's globe, luminous connections and detailed network imagery; give those visuals room; use precise, short explanations; and make deeper evidence accessible through descriptive links. Space should explain grouping rather than merely increase page length.
+To serve it locally:
 
-Don Norman's discussion of [signifiers](https://jnd.org/signifiers-not-affordances/) informs the labeled network illustration, visible Menu label and outcome-oriented download actions: people need interpretable cues about what a product does and how to act. The structure and spacing choices here are design judgments, not experimentally demonstrated conversion improvements.
+```
+python3 -m http.server 8000
+```
 
-Accessibility is part of the intended design quality. Implementation should target [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including meaningful labels, keyboard operation, visible focus, contrast and reflow. The image does not establish conformance.
+Then visit `http://localhost:8000`.
 
-## Why this structure is strong
+## What is in the repo
 
-The page follows the visitor's uncertainty: **What is it? → How is it different? → How do I begin? → Why believe it? → Where can I participate? → What next?**
+| File | Purpose |
+| --- | --- |
+| [`index.html`](index.html) | The whole page: markup, styles and a small script for the demo. |
+| [`assets/manrope.css`](assets/manrope.css) | Manrope, subset and embedded as text. No font requests to third parties. Licence in [`assets/OFL.txt`](assets/OFL.txt). |
+| [`assets/badge-*.svg`](assets/) | App Store, Google Play and F-Droid badges, as used on simplex.chat. |
+| [`design-specification.md`](design-specification.md) | The design system: thesis, audience, page structure, type, colour, motion, accessibility and the evidence rules. Read this before changing anything. |
+| [`audit-and-validation.md`](audit-and-validation.md) | The running audit log: every check, finding and fix, newest first. |
 
-| Section | Visitor question | Structural strength |
-| --- | --- | --- |
-| Hero | What is this, and how do I get it? | Names private chat, explains invitation-based connection and makes Download the strongest action. The globe carries the brand character without competing with the copy. |
-| Network explanation | What does the architecture mean for me? | Pairs local contacts and profile-identifier language with labeled devices and relays. The illustration is an explanation rather than decoration. |
-| Start a conversation | What will I actually need to do? | Groups three concrete steps together, beside an illustrative app preview, with a guide for detail. |
-| Security evidence | What has been examined? | Separates report years and review scopes, provides direct paths to findings and places the qualification beside the evidence. |
-| Directory | Where can I find people? | Offers a clear directory entry point. Suggested category labels demonstrate navigation without inventing named communities or usage figures. |
-| Roadmap and support | Where is the project going, and how can I help? | Keeps future plans concise and funding secondary to the product journey. |
-| Final download | Am I ready to try it? | Repeats the useful action after explanation and proof, without introducing a new pitch. |
-| Footer | Where is the supporting information? | Groups product, trust and project destinations; supporting destinations stay grouped. |
+## The idea in one paragraph
 
-## Quality decisions
+Every messenger people use today is built on knowing who they are: a phone number, a username, a public key. SimpleX has none of these. The page leads with that shift ("Talk to anyone. Be no one."), then shows it working: one conversation in three views, where both phones see the chat and the server sees only encrypted noise with no sender and no recipient. Everything after the hero is evidence. Who identifies you on other networks, what changed, what can be checked, and what independent reviewers say.
 
-- Blue/cyan identity and luminous network imagery preserve recognisability.
-- Quiet surfaces behind text, consistent alignment and fewer decorative elements reduce competing signals.
-- Technical quality comes from named evidence, accurate scope, understandable architecture and accessible detail—not unsupported security superlatives.
-- Desktop groups related copy and controls with a consistent editorial grid. Mobile design is outside the current scope.
-- Supporting information stays available through Guide, security findings, privacy, transparency and source-code routes.
+## Page structure
 
-## Evidence and provenance
+1. **Hero.** One line, one action, one quiet proof line (open source, Trail of Bits, F-Droid).
+2. **Live demo.** Your phone, the server, their phone. Pausable. Its limit is stated beside it.
+3. **The difference.** What identifies you on each kind of network, with SimpleX's full five-point comparison behind a toggle.
+4. **The shift.** Then and now.
+5. **Proof.** Six checkable facts: Trail of Bits reviews, open source, run your own server, quantum-resistant encryption, private routing, verifiable builds.
+6. **Independent voices.** Verbatim quotes from Privacy Guides and Whonix, plus links to Kuketz Blog and The Opt Out podcast.
+7. **Get the app.** Store badges and direct downloads.
 
-The 2022 report examined the **simplexmq cryptography and networking library**, with other areas explicitly outside its scope. See the [2022 SimpleX announcement](https://simplex.chat/blog/20221108-simplex-chat-v4.2-security-audit-new-website.html).
+## Principles
 
-The 2024 report reviewed the **cryptographic design of protocols** used by the network and applications. It is not equivalent to a comprehensive implementation audit of every current release. See the [2024 SimpleX announcement](https://simplex.chat/blog/20241014-simplex-network-v6-1-security-review-better-calls-user-experience.html).
+- **Integrity first.** Every claim links to a primary source. No invented numbers, quotes or endorsements. Limits sit beside the claims they qualify.
+- **Show, don't tell.** The demo carries the message. No stock imagery.
+- **Type carries hierarchy.** Big type, a strict grid, hairlines. Few boxes, no decoration.
+- **Private by construction.** No trackers, no cookies, no third-party requests. The page practises what it describes.
+- **Accessible.** WCAG 2.2 AA targets: contrast, 44px tap targets, keyboard use, pause control, reduced motion, works without JavaScript.
 
-These are historical review references, not a claim that they are the latest available assessments. Before implementation, check the current security documentation and link to the report versions and findings.
+## History
 
-The mockup was generated and iteratively edited with OpenAI's built-in image generation tool. SimpleX imagery and branding were recreated from public website screenshots as design references; these are not extracted production assets. The app conversation is illustrative. Directory categories are proposed, not verified live categories. Third-party names and marks remain associated with their respective owners; this project does not assert endorsement or grant rights to those assets.
+This design replaced earlier work in this repo: a raster mockup (4 October 2026) and a light coded homepage with a globe hero (6 October 2026). Both remain in the git history and in the audit log. The current design began as a blue-sky exploration and was promoted to main on 6 October 2026.
 
-## Handoff
+## Credits and rights
 
-- [Design specification](design-specification.md): typography, spacing, responsive composition and interaction requirements.
-- [Audit and validation](audit-and-validation.md): findings addressed and remaining checks.
-- [Generation brief](generation-brief.md): reproducible creative direction.
-
-The final typography critique is incorporated in the implementation specification. Onboarding explicitly includes link and QR-code invitations, consistent with the [Quick start guide](https://simplex.chat/docs/guide/readme.html#connect-to-friends). The raster mockup still cannot guarantee exact fonts, text sizes, contrast, responsive behavior or working links.
-
-## Current direction
-
-Desktop website only. The primary mockup uses deep ink text, cobalt actions, blue links and clean ice-blue surfaces. The earlier desktop/mobile image remains as an archived iteration. Color values are implementation targets, not measured raster values.
-
-## Latest desktop audit
-
-The modern-blue desktop mockup is the current visual baseline. The [latest audit](audit-and-validation.md#current-desktop-audit--4-october-2026) records six open refinements: distinct colour roles, consistent lower-page spacing, differentiated heading weights, precise diagram callouts, approved original imagery and a simpler final download row. Each finding includes priority, remedy and acceptance criteria. The [design specification](design-specification.md#next-desktop-refinement-requirements) incorporates these requirements. They are documented next steps, not completed image edits.
+- Fonts: Manrope by The Manrope Project Authors, SIL Open Font License 1.1.
+- Store badges: Apple, Google and F-Droid marks, used only to link to the real store listings. They belong to their owners.
+- SimpleX and its marks belong to their owners. Quotes belong to their publishers and are linked to their sources.
