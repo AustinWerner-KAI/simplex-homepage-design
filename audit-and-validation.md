@@ -1,5 +1,44 @@
 # Audit and validation
 
+## Coded homepage v1 audit — 6 October 2026
+
+Current artifact: [index.html](index.html) + [styles.css](styles.css), rendered at 390px, 768px and 1280px ([renders/](renders/)). This is the first working page in the repo; the raster mockups are now the archived design baseline.
+
+**What changed.** The hero now leads with sovereignty ("Your messages. Your network. No one in the middle.") on a solid navy surface beside the globe image; the page below keeps the ink/cobalt/ice palette. The network section states the three claims in text (no user identity, no central server, data stays with you) beside the supplied illustration. Roadmap and support share one section. The final row is heading, Download SimpleX and All platforms only.
+
+### Status of the 4 October findings
+
+| ID | Status | Evidence |
+| --- | --- | --- |
+| D01 | Closed | Headings #10234A, body #334155, actions #245CFF, links #2057D4 underlined, cyan only on eyebrow, focus ring and pillar rules. Diagram caption and qualifications use muted #475569. |
+| D02 | Closed | Every band uses the same clamp(72px, 9vw, 120px) padding; roadmap and support are one two-column section. |
+| D03 | Closed | Hero 600 weight, section headings 500, body 400 (Inter). |
+| D04 | Superseded | The generated diagram was replaced by the supplied illustration, which carries its own labels. See D07. |
+| D05 | Open | Globe and network images are generated artwork supplied by Kai, not approved SimpleX assets. Rights still need confirming before any production use. |
+| D06 | Closed | Final row contains heading, one button and All platforms link. |
+
+### New findings
+
+| ID | Priority | Observed issue | Required refinement |
+| --- | --- | --- | --- |
+| D07 | Medium | The network illustration has text baked into the image (heading, side panel, labels). It is unreadable at 390px and is not available to assistive technology. The HTML carries the same claims in text and the alt text describes the labels. | Obtain or crop a text-free version of the illustration and move all labels into HTML callouts. |
+| D08 | Low | Destinations for directory, roadmap, security, investing and donate links point at plausible simplex.chat and GitHub URLs that were not fetched during this round. | Verify every external link before publishing. |
+| D09 | Low | Inter is loaded from Google Fonts. It adds one third-party request. | Self-host the three weights or confirm the system-font fallback is acceptable. |
+| D10 | High | The binary assets (assets/ and renders/) could not be pushed through the GitHub API in this session. The branch holds the HTML, CSS and docs only; the page renders without its two images until the assets folder is added. | Add the assets/ and renders/ folders from the delivered zip to this branch. |
+
+### Checks completed this round
+
+- Rendered at 390px, 768px and 1280px with headless Chromium; no horizontal overflow at any width.
+- Contrast measured from the CSS values: hero text 17.7:1, hero lede 11.8:1, link on navy 9.4:1, button text 5.2:1, link on ice 5.8:1, body on ice 9.6:1, muted on ice 7.0:1, step numbers 4.8:1. All pass WCAG 2.2 AA.
+- Mobile Menu: aria-expanded toggles, first link receives focus on open, Escape closes and returns focus to the button.
+- No interactive element below 24 x 24 CSS px; nav links and buttons are 44px or taller.
+- Text never sits on an image or translucent layer. The gradient on the hero only covers the image, not the copy.
+- Page weight: desktop hero 233KB WebP, mobile hero 83KB WebP, illustration 103KB WebP, CSS 6KB, no JS libraries.
+
+### Still untested
+
+Real-device load time, screen-reader pass, zoom to 200%, link destinations (D08), newcomer comprehension of the sovereignty headline. No conversion improvement is claimed.
+
 ## Current desktop audit — 4 October 2026
 
 Current artifact: [homepage-desktop.png](homepage-desktop.png). Scope: desktop website only. The earlier desktop/mobile concept is an archived iteration.

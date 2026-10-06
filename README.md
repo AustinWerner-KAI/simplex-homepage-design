@@ -2,9 +2,11 @@
 
 A spacious, imagery-led homepage proposal for [SimpleX Chat](https://simplex.chat/), helping newcomers understand private messaging, inspect its evidence and start a conversation.
 
-**Status:** independent design study, 4 October 2026. Static desktop mockup and implementation guidance; not an official SimpleX release or functioning website.
+**Status:** independent design study. 6 October 2026: first coded homepage ([index.html](index.html)), responsive from 390px up, with a dark sovereignty hero and a light page below. Not an official SimpleX release.
 
-![Complete desktop homepage concept](homepage-desktop.png)
+![Coded homepage v1, desktop](renders/coded-v1-desktop.jpg)
+
+Earlier raster mockups: [homepage-desktop.png](homepage-desktop.png) (4 October baseline) and [homepage-desktop-mobile.png](homepage-desktop-mobile.png) (archived).
 
 ## Design philosophy
 
@@ -36,7 +38,7 @@ The page follows the visitor's uncertainty: **What is it? → How is it differen
 - Blue/cyan identity and luminous network imagery preserve recognisability.
 - Quiet surfaces behind text, consistent alignment and fewer decorative elements reduce competing signals.
 - Technical quality comes from named evidence, accurate scope, understandable architecture and accessible detail—not unsupported security superlatives.
-- Desktop groups related copy and controls with a consistent editorial grid. Mobile design is outside the current scope.
+- Desktop groups related copy and controls with a consistent editorial grid; mobile recomposes the same groups in one column.
 - Supporting information stays available through Guide, security findings, privacy, transparency and source-code routes.
 
 ## Evidence and provenance
@@ -59,8 +61,12 @@ The final typography critique is incorporated in the implementation specificatio
 
 ## Current direction
 
-Desktop website only. The primary mockup uses deep ink text, cobalt actions, blue links and clean ice-blue surfaces. The earlier desktop/mobile image remains as an archived iteration. Color values are implementation targets, not measured raster values.
+Coded page, mobile and desktop. The hero leads with sovereignty: no user identity, no central server, data on your device. The globe image sets a dark hero band; the rest of the page uses the light palette. Earlier note: desktop website only. The primary mockup uses deep ink text, cobalt actions, blue links and clean ice-blue surfaces. The earlier desktop/mobile image remains as an archived iteration. Color values are implementation targets, not measured raster values.
 
-## Latest desktop audit
+## Latest audit
+
+See [coded homepage v1 audit](audit-and-validation.md#coded-homepage-v1-audit--6-october-2026): D01, D02, D03 and D06 closed in code; D05 open (image rights); D07 to D09 new.
+
+## Earlier desktop audit
 
 The modern-blue desktop mockup is the current visual baseline. The [latest audit](audit-and-validation.md#current-desktop-audit--4-october-2026) records six open refinements: distinct colour roles, consistent lower-page spacing, differentiated heading weights, precise diagram callouts, approved original imagery and a simpler final download row. Each finding includes priority, remedy and acceptance criteria. The [design specification](design-specification.md#next-desktop-refinement-requirements) incorporates these requirements. They are documented next steps, not completed image edits.
