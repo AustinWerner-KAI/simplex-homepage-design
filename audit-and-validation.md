@@ -2,6 +2,33 @@
 
 The running record of every audit, check and fix on this design, newest first. Sections below the release entry describe earlier iterations; files they mention (styles.css, the PNG mockups, generation-brief.md, concepts/) were removed from main on 6 October 2026 and remain in the git history.
 
+## Hero background and copy pass — 7 October 2026
+
+Kai asked for an image embossed into the background of the hero. Five options were mocked up and rendered before one was chosen: flat concentric ripples, the supplied night-globe photo pressed into the surface (it read as stone texture, not a globe), a perspective wireframe gravity well, a first 3D embossed spiral, and the final detailed render. Kai chose the detailed 3D version.
+
+### What changed
+
+| Change | Detail |
+| --- | --- |
+| Hero image | Gravitational waves from two black holes spiralling together, rendered in code from the leading-order inspiral formula (chirping quadrupole wave, two funnel wells, a fine grid that bends with the strain). Lit with a cool key light and a faint warm rim light. Script: [assets/gravity-waves.py](assets/gravity-waves.py). Output: a 41KB WebP at assets/gravity-waves.webp, tilted in perspective with CSS transforms and masked so it fades into the page on the left and top. |
+| Why this image | The design thesis says a globe or glowing network says "technology", not "no identity". Waves spreading from a point that has no centre fit the message. The image is generated, so there is no rights question (closes D05). |
+| Copy | Reviews section kicker "Independent voices" is now "Independent reviews"; its heading is "Reviewed independently. In their own words." (replacing "Don't take our word for it. Read theirs.", which Kai found unprofessional). Private routing fact link text "How it works" is now "Release notes" (it links to the v6.0 release post). Quotes use curly quotation marks. |
+| Share page | share/be-no-one.html carries the same changes. Hosted preview republished. |
+
+### Checks
+
+- Contrast measured per text element against the brightest pixel behind it, at 1440, 1920 and 390px: all hero text at or above 4.5:1 (3:1 for the large headline). On phones the image is faded to 70% and moved below the headline so the small labels stay above 4.5:1.
+- No horizontal scroll at 320, 390, 860, 1440 or 2560px.
+- Reduced motion and no-JavaScript renders unchanged apart from the background (the image does not move, so the pause control is unaffected).
+- Page weight: index.html 25KB plus the 41KB image. One request for the page, one for the font stylesheet, one for the image, three for badges. No third-party requests.
+- All characters in the new copy are in the font subset (curly quotes included).
+
+### Known limits
+
+- The image is decorative and hidden from assistive technology by construction (a CSS pseudo-element). It carries no information the text does not.
+- The image file assets/gravity-waves.webp is binary, so it cannot be pushed from this session; it is uploaded through the GitHub web UI. Until it is there, the hero shows the plain background. The screenshots in renders/ predate this change and need re-uploading the same way.
+- Six further copy suggestions from the UX copy audit are not applied, pending a decision: "Proof, not promises" → "The evidence"; "Check everything. That's the point." → "Every claim can be checked. Start with the sources."; "Every network you use is built on knowing who you are." → "Most networks are built on knowing who you are."; "One company holds the graph of your life." → "One company holds your entire contact list."; nav "Why" → "Why SimpleX"; "iOS beta" → "iOS beta on TestFlight".
+
 ## Release to main — 6 October 2026
 
 Kai approved the blue-sky concept and asked for it to replace the previous design on main, with the documentation rewritten around it.
