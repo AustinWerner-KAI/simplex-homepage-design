@@ -17,11 +17,23 @@ Kai asked for an image embossed into the background of the hero. Five options we
 
 ### Checks
 
-- Contrast measured per text element against the brightest pixel behind it, at 1440, 1920 and 390px: all hero text at or above 4.5:1 (3:1 for the large headline). On phones the image is faded to 70% and moved below the headline so the small labels stay above 4.5:1.
+- Contrast measured per text element against the brightest pixel behind it, at 1440, 1920 and 390px, in the dim state (2.5s) and after the animation settles (9s). Lowest result: 3.2:1 on "Be no one." while dim (large text, minimum 3:1); every small label at or above 5.4:1.
 - No horizontal scroll at 320, 390, 860, 1440 or 2560px.
 - Reduced motion and no-JavaScript renders unchanged apart from the background (the image does not move, so the pause control is unaffected).
 - Page weight: index.html 25KB plus the 41KB image. One request for the page, one for the font stylesheet, one for the image, three for badges. No third-party requests.
 - All characters in the new copy are in the font subset (curly quotes included).
+
+### Critique loop on the shipped page
+
+Kai asked for every step to run a self-critique loop against the agreed criteria before he sees it. The first run on this release found that the earlier contrast check was wrong: it hid the text with a colour change that the page's own transitions delayed, so leftover text pixels were read as background and contrast looked better than it was. The checker now disables transitions and hides text fill before sampling.
+
+| Loop | Found | Fix |
+| --- | --- | --- |
+| 1 | "Their phone" and "they see" labels 3.5 to 4.5:1 over the waves (need 4.5:1). "Be no one." 2.7:1 in its dim state (need 3:1). | Demo panels over the waves get a dark fill (#05070C at 86%). The left fade over the headline widened (solid to 38%, clear at 70%). |
+| 2 to 3 | "Be no one." passed at 3.0:1, too close to the line. | Fade widened again: 3.2:1. |
+| 4 | Phone: the fixes hid the waves (3% of the first screen changed by the image). | Mobile fade shortened and the waves moved down: 9% of the first screen. |
+
+Accepted limit: on phones the waves show only around the edges of the demo. Making them larger pushes the small labels below 4.5:1. Kai accepted the subtle phone version.
 
 ### Known limits
 
