@@ -1,5 +1,53 @@
 # Audit and validation
 
+## Blue-sky concept, basics and evidence pass — 6 October 2026 (late)
+
+Scope: [concepts/blue-sky/index.html](concepts/blue-sky/index.html) (PR #2). Kai approved the direction and asked to apply the basics without changing the design much, and to keep building the evidence. Rendered at 320, 390 and 1440px.
+
+### Audit findings and what was done
+
+| ID | Priority | Finding | Action |
+| --- | --- | --- | --- |
+| B01 | High | The server log and sweep animate forever with no way to stop them (WCAG 2.2 SC 2.2.2 Pause, Stop, Hide). | Added a "Pause animation" button that switches to "Play animation". Pausing freezes the log, the sequence and the sweep; checked in the browser. It only appears when JavaScript runs and motion is allowed, because otherwise nothing moves. |
+| B02 | High | The demo claim had no qualification beside it. | The caption now says private message routing, on by default since v6.0, protects your IP address from the destination servers. Source: SimpleX v6.0 release post (14 August 2024). |
+| B03 | Medium | The ID ledger was built from divs with ARIA table roles. | Now a real table with row headers and a hidden caption. It looks the same; on phones each row stacks. |
+| B04 | Medium | Hero proof links were about 36px tall. | Now 44px tap targets with the same underline look. The logo link is also 44px tall now. |
+| B05 | Medium | No theme colour, social preview tags or favicon. | Added theme-color, Open Graph title and description, and an inline SVG favicon (no extra request). |
+| B06 | Low | The footer had only three links and none to security, transparency or build verification. | Added Source code, Security, Transparency, Verify builds, Privacy and Blog, each with a larger tap area. |
+| B07 | Low | Inline links in sentences (captions, sources, "Also:") are 19 to 21px tall. | Left as is: links inside a sentence are exempt under SC 2.5.8. Noted in case SimpleX wants larger ones. |
+
+### Evidence added (all checked on 6 October 2026)
+
+| Evidence | Where it sits | Primary source |
+| --- | --- | --- |
+| Full comparison: user identifiers, man-in-the-middle, DNS dependence, single operator, network-wide attack, against Signal, XMPP/Matrix and P2P. | "See the full comparison" under the ID ledger (native disclosure, scrolls sideways on small screens rather than overflowing the page). | simplex.chat/docs/simplex.html. Labelled as SimpleX's own comparison, not independently verified. |
+| Quantum-resistant end-to-end encryption since v5.6, March 2024. | Proof grid, new fact. | SimpleX v5.6 release post, 23 March 2024. Whonix independently names "post-quantum encryption". |
+| Private message routing on by default since v6.0, August 2024. | Proof grid and the demo caption. | SimpleX v6.0 release post, 14 August 2024. |
+| Verifiable builds. | Proof grid and footer. | simplex.chat/reproduce/ |
+| Privacy Guides quote, verbatim. | New "Independent voices" section. | privacyguides.org, The Best Private Instant Messengers, SimpleX Chat entry. |
+| Whonix quote, trimmed where marked, with Whonix's own note that its order reflects usability with Whonix. | "Independent voices". | whonix.org/wiki/Chat, Recommendation section. |
+| Kuketz Blog review (German) and The Opt Out podcast episode. | Source line under the quotes. | Both links return 200. Both are listed on simplex.chat. |
+
+The proof grid grew from three facts to six in the same style. One new section was added (Independent voices); it reuses the existing section pattern.
+
+### Considered and left out
+
+- The 2024 investment from Jack Dorsey and Asymmetric Capital Partners, and earlier from Village Global (SimpleX v6.0 post). It is verified, but it is funding, not proof of privacy, and naming a famous backer reads as endorsement. Kai's call whether it belongs on an investor-facing version.
+- SimpleX's "tens of millions of messages a day". It is self-reported with no method published.
+- heise. The live site links only to a search page, not a specific article.
+
+### Checks
+
+- No horizontal scroll at 320, 390 or 1440px. No console errors over http; the only file:// error is the font preload, a browser rule for local files.
+- Headings in order: one h1, h2 per section, h3 only inside the shift grid.
+- Link status: every simplex.chat, Privacy Guides, Whonix, Kuketz, Opt Out, App Store, Google Play, TestFlight and GitHub release link returns 200. github.com pages return 403 from this sandbox only; unverified, not broken.
+- Contrast unchanged from the previous pass; new quote text 18.6:1, captions 5.7:1, comparison text 9.3:1.
+- The page makes no third-party requests: fonts and badges are local, and the favicon is inline.
+
+### Untested
+
+Screen readers on the disclosure and pause button, real devices, and whether visitors open the full comparison.
+
 ## Blue-sky concept — 6 October 2026 (night)
 
 Artifact: [concepts/blue-sky/index.html](concepts/blue-sky/index.html), renders in [renders/](renders/) (blue-sky-desktop.jpg, blue-sky-mobile.jpg). A separate exploration, not a replacement for PR #1's page. Brief from Kai: treat SimpleX as the next trillion-dollar idea; blue-sky modernisation.
