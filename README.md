@@ -30,6 +30,7 @@ Hosted preview: [claude.ai/artifact/CUXGkNVJAmLZWmWaKVqEHF](https://claude.ai/ar
 | --- | --- |
 | [`index.html`](index.html) | The whole page: markup, styles and a small script for the demo. |
 | [`assets/manrope.css`](assets/manrope.css) | Manrope, subset and embedded as text. No font requests to third parties. Licence in [`assets/OFL.txt`](assets/OFL.txt). |
+| [`assets/gravity-waves.py`](assets/gravity-waves.py) | Generates the hero background, `assets/gravity-waves.webp` (gravitational waves from a binary inspiral), and writes the CSS that places it into `index.html`. Needs numpy and Pillow. |
 | [`assets/badge-*.svg`](assets/) | App Store, Google Play and F-Droid badges, as used on simplex.chat. |
 | [`design-specification.md`](design-specification.md) | The design system: thesis, audience, page structure, type, colour, motion, accessibility and the evidence rules. Read this before changing anything. |
 | [`audit-and-validation.md`](audit-and-validation.md) | The running audit log: every check, finding and fix, newest first. |
@@ -40,18 +41,18 @@ Every messenger people use today is built on knowing who they are: a phone numbe
 
 ## Page structure
 
-1. **Hero.** One line, one action, one quiet proof line (open source, Trail of Bits, F-Droid).
+1. **Hero.** One line, one action, one quiet proof line (open source, Trail of Bits, F-Droid), over gravitational waves embossed into the background.
 2. **Live demo.** Your phone, the server, their phone. Pausable. Its limit is stated beside it.
 3. **The difference.** What identifies you on each kind of network, with SimpleX's full five-point comparison behind a toggle.
 4. **The shift.** Then and now.
 5. **Proof.** Six checkable facts: Trail of Bits reviews, open source, run your own server, quantum-resistant encryption, private routing, verifiable builds.
-6. **Independent voices.** Verbatim quotes from Privacy Guides and Whonix, plus links to Kuketz Blog and The Opt Out podcast.
+6. **Independent reviews.** Verbatim quotes from Privacy Guides and Whonix, plus links to Kuketz Blog and The Opt Out podcast.
 7. **Get the app.** Store badges and direct downloads.
 
 ## Principles
 
 - **Integrity first.** Every claim links to a primary source. No invented numbers, quotes or endorsements. Limits sit beside the claims they qualify.
-- **Show, don't tell.** The demo carries the message. No stock imagery.
+- **Show, don't tell.** The demo carries the message. No stock imagery; the one background image is generated in code.
 - **Type carries hierarchy.** Big type, a strict grid, hairlines. Few boxes, no decoration.
 - **Private by construction.** No trackers, no cookies, no third-party requests. The page practises what it describes.
 - **Accessible.** WCAG 2.2 AA targets: contrast, 44px tap targets, keyboard use, pause control, reduced motion, works without JavaScript.

@@ -2,7 +2,7 @@
 
 The rules behind [`index.html`](index.html). Change the page to fit these rules, or change these rules on purpose and record why in the [audit log](audit-and-validation.md). Never let the two drift apart.
 
-Version: 1.0, 6 October 2026.
+Version: 1.1, 7 October 2026.
 
 ## 1. Purpose
 
@@ -21,7 +21,7 @@ The experience should feel new, calm and certain. It should not feel like hype. 
 
 Choices that follow from this:
 
-- A type-only hero. No stock imagery. A globe or a network of glowing lines says "technology"; it does not say "no identity".
+- A type-led hero. No stock imagery. A globe or a network of glowing lines says "technology"; it does not say "no identity". The one image is embossed into the background: gravitational waves from two black holes spiralling together, rendered in code. Waves spreading out from a centre that has no body in it is the closest picture we have found for a network with no identity at its centre.
 - A live demo that makes the claim visible: what you see, what the server sees, what they see.
 - Evidence in the same visual language as the claims, so proof never looks like an afterthought.
 
@@ -34,7 +34,7 @@ The main tradeoff: a dark, type-led page feels premium but can feel cold. The ch
 | Privacy-conscious newcomers leaving WhatsApp or Telegram | Plain language, a clear difference, an easy install. | Hero line, demo, store badges. |
 | The privacy community (readers of Privacy Guides, Whonix, Kuketz Blog) | Independent sources and accurate limits. | Proof grid, verbatim quotes, limits stated beside claims. |
 | Developers and self-hosters | Source code, specs, verifiable builds, servers they can run. | Open source, Run your own, Verifiable builds, protocol links. |
-| People on low-end phones or filtered networks | A fast page that works anywhere. | No images in the hero, one small font file, no third-party requests, works without JavaScript. |
+| People on low-end phones or filtered networks | A fast page that works anywhere. | One 41KB image, one small font file, no third-party requests, works without JavaScript. |
 
 ## 4. Page structure
 
@@ -42,12 +42,12 @@ Each section answers one question and hands on to the next.
 
 | # | Section | Visitor question | Content rules |
 | --- | --- | --- | --- |
-| 1 | Hero | What is this? | One headline, one lede, one primary action ("Get SimpleX"), one proof line of three links. Nothing else. |
+| 1 | Hero | What is this? | One headline, one lede, one primary action ("Get SimpleX"), one proof line of three links. Behind them, the embossed wave image, faded so no text sits on its brightest area. |
 | 2 | Demo | Is it real? | Three columns: your phone, the server, their phone. Server shows only queue addresses and ciphertext, then "Sender unknown, Recipient unknown, Content encrypted". Caption labels it an illustration and states the limit (private routing protects IP addresses from destination servers). Pause button. |
 | 3 | The difference | How is it different? | Ledger of what identifies you on each kind of network, ending "SimpleX: Nothing." Full five-point comparison behind a disclosure, labelled as SimpleX's own. |
 | 4 | The shift | Why does it matter? | Two "then" cards, one "now" card. |
 | 5 | Proof | Can I check it? | Six facts in a 3 x 2 grid. Each has a short headline, one sentence, one source link. |
-| 6 | Independent voices | Who else says so? | Verbatim quotes only, attributed and linked. Further coverage as a source line. |
+| 6 | Independent reviews | Who else says so? | Verbatim quotes only, attributed and linked. Further coverage as a source line. |
 | 7 | Get the app | Where do I get it? | Closing line, store badges, direct downloads (desktop, APK from GitHub, iOS beta). |
 | — | Footer | Where is everything else? | Concept notice, privacy statement for the page itself, links to source, security, transparency, build verification, privacy and blog. |
 
@@ -129,6 +129,7 @@ One dark canvas, one accent. Contrast measured against `--bg`.
 | --- | --- | --- | --- |
 | `--bg` | #05070C | Page background | |
 | `--bg-2` | #0A0E17 | Server panel | |
+| Wave highlight | up to #4A6682 | Brightest crest of the hero image | Text over it stays at or above 4.5:1 (3:1 for the headline), measured per element |
 | `--line` | #1A2233 | Hairlines and grid rules | Decorative |
 | `--text` | #F3F6FA | Headlines, key text, primary button | 18.6:1 |
 | `--soft` | #A7B1C4 | Body copy, secondary links | 9.3:1 |
@@ -149,7 +150,7 @@ Use the accent sparingly: one or two moments per section. Never use it for body 
 
 ## 10. Motion
 
-Motion explains; it never decorates.
+Motion explains; it never decorates. The hero image does not move.
 
 - The demo plays once: each message appears on your phone, the server logs noise, then it arrives on theirs. After three messages, "Be no one." brightens from dim to full white. The server keeps logging noise slowly.
 - A thin accent line sweeps the server panel.
@@ -183,7 +184,7 @@ Target WCAG 2.2 AA. Checks done are recorded in the audit log.
 
 ## 13. Performance and privacy of the page itself
 
-- No images in the hero. The only images are three small SVG badges at the bottom.
+- One image in the hero: the gravitational wave render, a 41KB WebP at assets/gravity-waves.webp. It is generated by [assets/gravity-waves.py](assets/gravity-waves.py); rerun that script to change it. The only other images are three small SVG badges at the bottom.
 - One stylesheet with the embedded font (about 16KB), styles and script inline in the page.
 - No trackers, no analytics, no cookies, no third-party requests. Keep it that way: the page must practise what it describes.
 
