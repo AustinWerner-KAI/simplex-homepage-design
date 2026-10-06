@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SimpleX: talk to anyone, be no one</title>
 <meta name="description" content="The first network without user IDs. Not a number, not a username, not even a random one. Blue-sky design concept, not the official site.">
+<meta name="theme-color" content="#05070C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SimpleX: talk to anyone, be no one">
+<meta property="og:description" content="The first network without user IDs. Not a number, not a username, not even a random one.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%2305070C'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%234FC3FF' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preload" href="../../assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.className+=" js"</script>
 <style>
@@ -31,7 +36,7 @@ a{color:inherit}
 /* Header: almost nothing */
 header{position:absolute;inset:0 0 auto;z-index:5}
 .bar{display:flex;align-items:center;justify-content:space-between;height:76px}
-.mark{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:15px}
+.mark{display:inline-flex;align-items:center;min-height:44px;gap:10px;text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:15px}
 .mark svg{width:18px;height:18px;color:var(--accent)}
 .bar nav{display:flex;gap:28px;align-items:center;font-size:15px}
 .bar nav a{text-decoration:none;color:var(--soft);min-height:44px;display:inline-flex;align-items:center}
@@ -52,8 +57,10 @@ header{position:absolute;inset:0 0 auto;z-index:5}
 .btn:hover{transform:translateY(-1px)}
 .btn:active{transform:none}
 .proofline{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:15px;color:var(--faint)}
-.proofline a{color:var(--soft);text-decoration:none;border-bottom:1px solid #2A3550;padding:10px 0 2px}
-.proofline a:hover{color:var(--text);border-color:var(--text)}
+.proofline{margin:0}
+.proofline a{color:var(--soft);text-decoration:none;display:inline-flex;align-items:flex-end;min-height:44px;padding-bottom:4px;background:linear-gradient(#2A3550,#2A3550) left bottom/100% 1px no-repeat}
+.proofline a:hover{background-image:linear-gradient(var(--text),var(--text))}
+.proofline a:hover{color:var(--text)}
 
 /* DEMO: what the server sees */
 .demo{margin-top:clamp(48px,6vw,72px);display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:0;align-items:stretch;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -77,7 +84,12 @@ header{position:absolute;inset:0 0 auto;z-index:5}
 .sees dd{margin:0;color:var(--text);font-weight:600}
 .pulse{position:absolute;top:0;left:-30%;width:30%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:sweep 3.2s linear infinite}
 @keyframes sweep{to{left:100%}}
-.caption{margin-top:14px;font-size:13px;color:var(--faint)}
+.caption{margin-top:14px;font-size:14px;color:var(--faint);display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;justify-content:space-between}
+.caption p{margin:0;max-width:60em}
+.caption a{color:var(--soft)}
+.pause{font:inherit;font-size:14px;color:var(--soft);background:none;border:1px solid #2A3550;border-radius:999px;padding:0 16px;min-height:44px;cursor:pointer}
+.pause:hover{color:var(--text);border-color:var(--text)}
+.paused .pulse{animation-play-state:paused}
 
 /* SECTIONS */
 section.s{padding:clamp(96px,14vw,180px) 0;border-top:1px solid var(--line)}
@@ -88,7 +100,9 @@ section.s{padding:clamp(96px,14vw,180px) 0;border-top:1px solid var(--line)}
 
 /* ID ledger */
 .ledger{margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.ledger{width:100%;border-collapse:collapse}
+.ledger th,.ledger td{text-align:left;padding:22px 24px 22px 0;border-bottom:1px solid var(--line);vertical-align:baseline;font-weight:inherit}
+.ledger th{width:52%}
 .row .who{font-size:clamp(18px,1.8vw,24px);font-weight:500;color:var(--soft)}
 .row .id{font-family:var(--mono);font-size:clamp(15px,1.4vw,18px);color:var(--text)}
 .row.us .who{color:var(--text);font-weight:700}
@@ -107,12 +121,37 @@ section.s{padding:clamp(96px,14vw,180px) 0;border-top:1px solid var(--line)}
 
 /* Proof */
 .facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
-.fact{padding:32px 28px 8px 0}
-.fact + .fact{padding-left:28px;border-left:1px solid var(--line)}
+.fact{padding:32px 28px 32px 28px;border-bottom:1px solid var(--line)}
+.fact:nth-child(3n+1){padding-left:0}
+.fact:not(:nth-child(3n+1)){border-left:1px solid var(--line)}
 .fact .v{font-size:clamp(28px,3vw,40px);font-weight:600;letter-spacing:-0.03em;line-height:1.1}
 .fact .d{margin-top:10px;color:var(--soft);font-size:16px}
 .fact a{display:inline-flex;min-height:44px;align-items:center;color:var(--text);font-size:15px;font-weight:600;text-decoration:none;border-bottom:1px solid #2A3550}
 .fact a:hover{border-color:var(--text)}
+
+/* Quotes */
+.quotes{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+.quotes figure{margin:0;padding:32px 32px 8px 0}
+.quotes figure + figure{padding-left:32px;border-left:1px solid var(--line)}
+.quotes blockquote{margin:0}
+.quotes blockquote p{margin:0;font-size:clamp(20px,1.9vw,26px);line-height:1.4;letter-spacing:-0.015em;color:var(--text)}
+.quotes figcaption{margin-top:18px;font-size:15px;color:var(--faint)}
+.quotes figcaption a{color:var(--soft);font-weight:600}
+
+/* Full comparison */
+.more{margin-top:28px}
+.more summary{cursor:pointer;display:inline-flex;align-items:center;min-height:44px;color:var(--text);font-weight:600;font-size:16px}
+.more summary{list-style:none;gap:10px}
+.more summary::-webkit-details-marker{display:none}
+.more summary::before{content:"+";color:var(--accent);font-size:20px;line-height:1;width:14px}
+.more[open] summary::before{content:"\2212"}
+.scroll{overflow-x:auto;margin-top:16px}
+.matrix{width:100%;min-width:640px;border-collapse:collapse;font-size:15px}
+.matrix caption{text-align:left;color:var(--faint);font-size:14px;padding-bottom:12px}
+.matrix th,.matrix td{text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft);font-weight:400}
+.matrix thead th{color:var(--faint);font-size:13px;font-weight:600}
+.matrix tbody th{color:var(--text)}
+.matrix .good{color:var(--accent);font-weight:700}
 
 /* Get */
 .get-s{text-align:left}
@@ -123,7 +162,7 @@ section.s{padding:clamp(96px,14vw,180px) 0;border-top:1px solid var(--line)}
 
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--faint);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
-footer a{color:var(--soft)}
+footer a{color:var(--soft);display:inline-block;padding:8px 0}
 
 @media (max-width:860px){
   .bar nav a:not(.get){display:none}
@@ -131,8 +170,13 @@ footer a{color:var(--soft)}
   .node + .node{border-left:0;border-top:1px solid var(--line)}
   .node{min-height:0}
   .shift,.facts{grid-template-columns:1fr}
-  .shift div + div,.fact + .fact{padding-left:0;border-left:0;border-top:1px solid var(--line)}
-  .row{grid-template-columns:1fr;gap:4px}
+  .shift div + div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .fact{padding-left:0!important;border-left:0!important}
+  .quotes{grid-template-columns:1fr}
+  .quotes figure + figure{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .ledger th,.ledger td{display:block;width:auto;padding:0}
+  .ledger tr{display:block;padding:18px 0;border-bottom:1px solid var(--line)}
+  .ledger th,.ledger td{border-bottom:0}
 }
 @media (prefers-reduced-motion:reduce){
   .pulse{animation:none;display:none}
@@ -148,6 +192,7 @@ footer a{color:var(--soft)}
     <nav aria-label="Primary">
       <a href="#ids">Why</a>
       <a href="#proof">Proof</a>
+      <a href="#voices">Reviews</a>
       <a href="https://simplex.chat/docs/guide/readme.html">Guide</a>
       <a class="get" href="#get">Get SimpleX</a>
     </nav>
@@ -193,7 +238,10 @@ footer a{color:var(--soft)}
         </div>
       </div>
     </div>
-    <p class="caption">Illustration. Servers relay encrypted messages through one-off queues and hold no user identity. <a href="https://github.com/simplex-chat/simplexmq/blob/stable/protocol/overview-tjr.md">How it works</a></p>
+    <div class="caption">
+      <p>Illustration. Servers relay encrypted messages through one-off queues and hold no user identity. Private message routing, on by default since v6.0, also protects your IP address from the destination servers. <a href="https://github.com/simplex-chat/simplexmq/blob/stable/protocol/overview-tjr.md">How it works</a></p>
+      <button class="pause" id="pause" type="button" hidden>Pause animation</button>
+    </div>
   </div>
 </section>
 
@@ -201,13 +249,33 @@ footer a{color:var(--soft)}
   <div class="wrap">
     <p class="kicker">The difference</p>
     <h2 class="big" id="ids-h">Every network you use is built on knowing who you are. <span class="dim">This one isn't.</span></h2>
-    <div class="ledger" role="table" aria-label="What identifies you on each kind of network">
-      <div class="row" role="row"><span class="who" role="rowheader">Signal and the big platforms</span><span class="id" role="cell">+44 7700 900123</span></div>
-      <div class="row" role="row"><span class="who" role="rowheader">Matrix and XMPP</span><span class="id" role="cell">@you:server.org</span></div>
-      <div class="row" role="row"><span class="who" role="rowheader">Peer-to-peer networks</span><span class="id" role="cell">a global public key</span></div>
-      <div class="row us" role="row"><span class="who" role="rowheader">SimpleX</span><span class="id" role="cell">Nothing.</span></div>
-    </div>
+    <table class="ledger">
+      <caption class="vh">What identifies you on each kind of network</caption>
+      <tbody>
+        <tr class="row"><th scope="row" class="who">Signal and the big platforms</th><td class="id">+44 7700 900123</td></tr>
+        <tr class="row"><th scope="row" class="who">Matrix and XMPP</th><td class="id">@you:server.org</td></tr>
+        <tr class="row"><th scope="row" class="who">Peer-to-peer networks</th><td class="id">a global public key</td></tr>
+        <tr class="row us"><th scope="row" class="who">SimpleX</th><td class="id">Nothing.</td></tr>
+      </tbody>
+    </table>
     <p class="src">Categories from SimpleX's <a href="https://simplex.chat/docs/simplex.html">protocol comparison</a>. Example identifiers are illustrative.</p>
+    <details class="more">
+      <summary>See the full comparison</summary>
+      <div class="scroll">
+      <table class="matrix">
+        <caption>SimpleX's own comparison. A "Yes" is a weakness.</caption>
+        <thead><tr><th scope="col">Property</th><th scope="col">SimpleX</th><th scope="col">Signal, big platforms</th><th scope="col">XMPP, Matrix</th><th scope="col">P2P protocols</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Requires user identifiers</th><td class="good">No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+          <tr><th scope="row">Possibility of man-in-the-middle</th><td class="good">No</td><td>Yes, if the operator's servers are compromised</td><td>Yes</td><td>Yes</td></tr>
+          <tr><th scope="row">Depends on DNS</th><td class="good">No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+          <tr><th scope="row">Single operator or network</th><td class="good">No</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+          <tr><th scope="row">Central component or network-wide attack</th><td class="good">No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="src">Source: <a href="https://simplex.chat/docs/simplex.html">SimpleX platform overview, "Comparison with other protocols"</a>. Published by SimpleX, not independently verified.</p>
+    </details>
   </div>
 </section>
 
@@ -231,7 +299,28 @@ footer a{color:var(--soft)}
       <div class="fact"><p class="v">2022 · 2024</p><p class="d">Independent reviews by Trail of Bits: the cryptography library, then the protocol design.</p><a href="https://simplex.chat/security/">Scope and findings</a></div>
       <div class="fact"><p class="v">Open source</p><p class="d">Apps, servers and protocol, published on GitHub. Builds can be verified.</p><a href="https://github.com/simplex-chat">Read the code</a></div>
       <div class="fact"><p class="v">Run your own</p><p class="d">Anyone can host a server. No single company controls the network.</p><a href="https://simplex.chat/docs/server.html">Host a server</a></div>
+      <div class="fact"><p class="v">Quantum-resistant</p><p class="d">End-to-end encryption designed to resist future quantum computers, added in v5.6 (March 2024).</p><a href="https://simplex.chat/blog/20240323-simplex-network-privacy-non-profit-v5-6-quantum-resistant-e2e-encryption-simple-migration.html">Release notes</a></div>
+      <div class="fact"><p class="v">Private routing</p><p class="d">On by default since v6.0 (August 2024). Protects your IP address from the servers that deliver your messages.</p><a href="https://simplex.chat/blog/20240814-simplex-chat-vision-funding-v6-private-routing-new-user-experience.html">How it works</a></div>
+      <div class="fact"><p class="v">Verifiable builds</p><p class="d">Check that the app you install matches the published source code.</p><a href="https://simplex.chat/reproduce/">Reproduce a build</a></div>
     </div>
+  </div>
+</section>
+
+<section class="s" id="voices" aria-labelledby="voices-h">
+  <div class="wrap">
+    <p class="kicker">Independent voices</p>
+    <h2 class="big" id="voices-h">Don't take our word for it. <span class="dim">Read theirs.</span></h2>
+    <div class="quotes">
+      <figure>
+        <blockquote lang="en"><p>"SimpleX Chat is an instant messenger that doesn't depend on any unique identifiers such as phone numbers or usernames. Its decentralized network makes SimpleX Chat an effective tool against Censorship."</p></blockquote>
+        <figcaption><a href="https://www.privacyguides.org/en/real-time-communication/#simplex-chat">Privacy Guides</a>, The Best Private Instant Messengers</figcaption>
+      </figure>
+      <figure>
+        <blockquote lang="en"><p>"SimpleX has a high level of security and anonymity: post-quantum encryption, does not require a phone number or email for registration, protects against metadata collection, data is stored locally …"</p></blockquote>
+        <figcaption><a href="https://www.whonix.org/wiki/Chat#Recommendation">Whonix</a>, Chat documentation. Listed first in its recommendations, which Whonix orders by usability with Whonix.</figcaption>
+      </figure>
+    </div>
+    <p class="src">Also reviewed by <a href="https://www.kuketz-blog.de/simplex-eindruecke-vom-messenger-ohne-identifier/" hreflang="de">Kuketz Blog</a> (German) and discussed on <a href="https://optoutpod.com/episodes/s3e02-simplexchat/">The Opt Out podcast</a>. Quotes as published; the Whonix quote is trimmed where marked. Checked 6 October 2026.</p>
   </div>
 </section>
 
@@ -250,8 +339,8 @@ footer a{color:var(--soft)}
 
 <footer>
   <div class="wrap">
-    <span>Blue-sky design concept, October 2026. Not an official SimpleX release.</span>
-    <span><a href="https://github.com/simplex-chat">Open-source project</a> · <a href="https://simplex.chat/privacy/">Privacy</a> · <a href="https://simplex.chat/blog/">Blog</a></span>
+    <span>Blue-sky design concept, October 2026. Not an official SimpleX release. This page uses no trackers, no cookies and no third-party requests.</span>
+    <span><a href="https://github.com/simplex-chat">Source code</a> · <a href="https://simplex.chat/security/">Security</a> · <a href="https://simplex.chat/transparency/">Transparency</a> · <a href="https://simplex.chat/reproduce/">Verify builds</a> · <a href="https://simplex.chat/privacy/">Privacy</a> · <a href="https://simplex.chat/blog/">Blog</a></span>
   </div>
 </footer>
 
@@ -277,9 +366,16 @@ footer a{color:var(--soft)}
     return;
   }
   var be=document.getElementById('beno'); be.classList.add('pre');
+  var paused=false, timer=null, demo=document.querySelector('.demo'), pb=document.getElementById('pause');
+  pb.hidden=false;
+  pb.addEventListener('click',function(){
+    paused=!paused; pb.textContent=paused?'Play animation':'Pause animation';
+    demo.classList.toggle('paused',paused);
+  });
   for(var i=0;i<3;i++) line();
   var step=0;
   function tick(){
+    if(paused){ setTimeout(tick,500); return; }
     if(step<3){
       a[step].classList.add('show');
       setTimeout(line,350); setTimeout(line,700);
@@ -288,7 +384,7 @@ footer a{color:var(--soft)}
       setTimeout(tick,2000);
     } else {
       be.classList.remove('pre');
-      setInterval(line,1400);
+      timer=setInterval(function(){ if(!paused) line(); },1400);
     }
   }
   setTimeout(tick,700);
