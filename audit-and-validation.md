@@ -1,5 +1,34 @@
 # Audit and validation
 
+The running record of every audit, check and fix on this design, newest first. Sections below the release entry describe earlier iterations; files they mention (styles.css, the PNG mockups, generation-brief.md, concepts/) were removed from main on 6 October 2026 and remain in the git history.
+
+## Release to main — 6 October 2026
+
+Kai approved the blue-sky concept and asked for it to replace the previous design on main, with the documentation rewritten around it.
+
+### What changed
+
+| Change | Detail |
+| --- | --- |
+| Page | The blue-sky concept is now the root [index.html](index.html). The earlier light homepage (index.html, styles.css) and the raster mockups are removed from main. |
+| Font | Manrope subset to the 94 characters on the page, weights 400 to 700, embedded as base64 text in [assets/manrope.css](assets/manrope.css) (12KB font, 16.7KB file). Licence in assets/OFL.txt. This closes D10 for fonts: the repo needs no binary files. |
+| Badges | App Store, Google Play and F-Droid SVGs from simplex.chat, minified with svgo at 1 decimal place (3KB, 4KB, 6.8KB). Visually checked at display size. |
+| Docs | README and design-specification.md rewritten for this design. generation-brief.md removed (it described image generation for the retired mockups). This log keeps its history. |
+| Copy | Footer and meta description now say "Independent design concept" instead of "Blue-sky design concept". No other copy changed. |
+
+### Checks before merge
+
+- Served over http at 320, 390 and 1440px: no horizontal scroll, no console errors, no failed requests, no third-party requests.
+- Manrope loads from the embedded stylesheet (document.fonts reports "Manrope 400 700 loaded").
+- All three badges load (natural widths 119, 135, 560).
+- Every file pushed to GitHub was compared with the local file by git blob hash.
+
+### Known limits
+
+- The subset font covers only characters on the page. New copy needs a regenerated subset (steps in the design specification), or new characters fall back to the system font.
+- Renders (screenshots) are not in the repo, because the GitHub connection in this session cannot push binary files.
+- github.com links still return 403 from the sandbox used for checks. They are unverified from here, not known to be broken.
+
 ## Blue-sky concept, basics and evidence pass — 6 October 2026 (late)
 
 Scope: [concepts/blue-sky/index.html](concepts/blue-sky/index.html) (PR #2). Kai approved the direction and asked to apply the basics without changing the design much, and to keep building the evidence. Rendered at 320, 390 and 1440px.
