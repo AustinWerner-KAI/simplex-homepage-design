@@ -1,5 +1,65 @@
 # Audit and validation
 
+## Coded homepage v1 re-audit — 6 October 2026 (later)
+
+Scope: branch `coded-homepage-v1` (PR #1), rendered locally with its assets at 320, 390, 640 (200% zoom) and 1280px. Question asked: does the page deliver the hero and the evidence?
+
+**Answer.** The hero delivers the mood, not the proof. Sovereignty is stated but not shown, and the one piece of hard evidence (two Trail of Bits reviews) sits 2,239px down on desktop and 2,992px on a 390px phone, roughly three screens below the fold. SimpleX's own live homepage puts "2022 2024 Security Audits" inside its hero. Two claims also conflict with SimpleX's own documentation.
+
+### Integrity findings (fix before anything else)
+
+| ID | Priority | Finding | Evidence | Fix |
+| --- | --- | --- | --- | --- |
+| R01 | High | Headline "No one in the middle" contradicts the next section, which says messages pass through relays. A newcomer reads it as "no servers", which is false. | simplex.chat home: "Nobody can see who you talk to. Not even servers – all messages look like random noise." Servers are present; they are blind. | Rewrite around blind servers, e.g. "Your messages. Your contacts. Not even our servers know who you talk to." Keep the claim SimpleX itself makes. |
+| R02 | High | The network illustration is labelled "PEER-TO-PEER NETWORK" and "Peer-to-peer routing". SimpleX is not P2P: all messages go through SMP servers. Its own comparison table lists P2P protocols as a separate category. | simplex.chat/docs/simplex.html, "Comparison with other protocols"; simplex.chat/docs/glossary.html, "Peer-to-peer". | Replace the illustration or crop out its baked-in text (extends D07). Until then the image misstates the architecture on the section meant to explain it. |
+| R03 | Medium | "Not by selling your data" is our addition. SimpleX says "Funded by its users" and runs an equity crowdfund. The extra clause implies a comparison we have not sourced. | simplex.chat home, "Funded by Its Users". | Use SimpleX's wording: "Funded by its users. Large communities will pay for their servers." |
+
+### Evidence findings
+
+| ID | Priority | Finding | Fix |
+| --- | --- | --- | --- |
+| R04 | High | No proof above the fold. The hero lists claims (no identity, no central server) with nothing that backs them. | Add one evidence line under the CTA: "Independently reviewed by Trail of Bits, 2022 and 2024" linking to #trust. Optional: SimpleX's published "tens of millions of messages delivered privately every day" with its source. |
+| R05 | High | Sovereignty is told, not shown. SimpleX publishes a comparison table (user identifiers, MITM, DNS dependence, single operator) against Signal, Matrix/XMPP and P2P. That is the strongest sovereignty evidence available and the page does not use it. | Add a compact four-row comparison under "Your connections. Your control.", citing simplex.chat/docs/simplex.html. This is the unique point; give it the space the illustration has now. |
+| R06 | Medium | "How privacy works" links to /docs/protocol/overview-tjr.html, which returns 404. The main explanation link on the sovereignty section is broken. | Use the link the live site uses: github.com/simplex-chat/simplexmq/blob/stable/protocol/overview-tjr.md, or simplex.chat/docs/simplex.html (200). Closes part of D08. |
+| R07 | Medium | Directory categories (Technology, Privacy, Languages) are styled as working links but all go to the same page. Proposed categories presented as real navigation. | Render them as plain text under the "Proposed directory categories" label, or remove. |
+| R08 | Low | The globe image is generic: arcs converge on bright city hubs, which reads closer to centralised traffic than to "no central server". Design judgement, not a measured result. | Keep for mood if wanted, but let the comparison (R05) carry the sovereignty message, not the picture. |
+
+### Accessibility and build findings
+
+| ID | Priority | Finding | Measured | Fix |
+| --- | --- | --- | --- | --- |
+| R09 | High | Content does not reflow at 320px: the reports table is 335px wide, forcing horizontal scroll (WCAG 2.2 SC 1.4.10). | scrollWidth 335 at 320px viewport. | Stack table rows as blocks below 480px, or drop the Year/Scope/Report header and let cells wrap. |
+| R10 | High | Focus ring (cyan #40C8F4) is 1.95:1 on white and 1.81:1 on ice. Below the 3:1 non-text minimum (SC 1.4.11), so keyboard users can lose focus on light sections. | Computed from CSS values. | Use ink #10234A ring on light bands, cyan on navy bands. |
+| R11 | Medium | Nav Download button loses its side padding (the nav link rule overrides .btn-sm), so the label touches the button edges at 1280px. | Visible in the 1280px fold render. | Scope the nav link padding rule to exclude .btn. |
+| R12 | Low | Headline breaks as "No one in the / middle." at 1280 and 390px: a one-word last line on the most important text. Resolves with R01's rewrite. | Visible in renders. | Check line breaks after rewriting; use text-wrap: balance. |
+| R13 | Low | Chat preview aria-label says "two short messages" but shows three. | Source. | Correct the label. |
+| R14 | Low | GitHub links (source, roadmap, donate) returned 403 from this sandbox, so they are unverified, not proven broken. | curl status. | Check from a normal browser before publishing. |
+
+### What passed
+
+All other simplex.chat links return 200 (downloads, guide, both review posts, security, directory, privacy, transparency, blog). Text contrast still passes everywhere (lowest 4.8:1). 200% zoom at 1280px reflows to one column; the only overflow is the table (R09). Mobile loads the 83KB hero variant, not the 233KB desktop one.
+
+### Untested
+
+Screen reader pass, real-device load time, and whether newcomers understand "blind servers" faster than "no one in the middle". No conversion effect is claimed.
+
+### First recommended order
+
+R01, R02 and R04 first: they decide whether the hero is truthful and proven. Then R05 (the unique sovereignty proof), R06, R09, R10. The rest are small.
+
+### Lost proof points (raised by Kai)
+
+The live simplex.chat homepage (checked 6 October 2026) carries proof that v1 dropped. These are things SimpleX is visibly proud of, and they are the evidence the hero is missing (R04).
+
+| ID | Priority | On the live site | In v1 | Fix |
+| --- | --- | --- | --- | --- |
+| R15 | High | Store badges: App Store, Google Play, F-Droid, TestFlight beta, direct APK from GitHub releases. | Plain text "iOS · Android · macOS · Windows · Linux"; no badges, no F-Droid, no APK. | Put the official badges in the hero under Download, and again in the final CTA. F-Droid and the GitHub APK matter to this audience: they prove you can install without Google. |
+| R16 | High | Open source and GitHub: github.com/simplex-chat org, simplex-chat and simplexmq repos, protocol specs on GitHub, footer "Open-Source Project". | One "View source" link, three screens down in the trust section. | Add "Open source on GitHub" beside the review line in the hero (R04), link both repos in the trust section, link the protocol specs from "How privacy works", and restore "Open-source project" in the footer. |
+| R17 | Medium | Publications strip: Trail of Bits, Privacy Guides, Whonix, heise, Kuketz Blog, OptOut. | Only Trail of Bits, as text. | Add the strip under the trust heading, logos linking to each source. Use SimpleX's own assets and only the outlets they list; do not add others. |
+| R18 | Low | Socials: Mastodon, Reddit, X. | Missing. | Add to footer under Project. |
+
+**Revised order:** R01, R02, then a hero proof row built from R04 + R15 + R16 (badges, "Open source on GitHub", "Reviewed by Trail of Bits 2022 and 2024"). Then R05, R17, R06, R09, R10.
+
 ## Coded homepage v1 audit — 6 October 2026
 
 Current artifact: [index.html](index.html) + [styles.css](styles.css), rendered at 390px, 768px and 1280px ([renders/](renders/)). This is the first working page in the repo; the raster mockups are now the archived design baseline.
