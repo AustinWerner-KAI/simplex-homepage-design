@@ -1,5 +1,9 @@
 # Design specification
 
+## Implementation note (6 October 2026)
+
+[index.html](index.html) implements this specification with Inter 400/500/600, a 1200px content width, clamp-based section padding and the colour table below. The hero is a dark band (#0B1733) with white copy on a solid surface and the globe image beside it; text never overlaps the image. Mobile is back in scope from this version.
+
 ## Brief
 
 Product: marketing homepage for a privacy-focused messenger. Primary audience: newcomers, including people without protocol expertise. Primary task: understand the difference, inspect trust evidence, obtain the correct app and connect with someone. Supporting audiences: community participants, developers and supporters.

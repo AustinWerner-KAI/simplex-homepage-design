@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SimpleX Chat — private messaging with no user identity and no central server</title>
+<meta name="description" content="Private messaging with no user identity, no phone number and no central server. Your contacts stay on your device. Connect by invitation. Design concept, not the official site.">
+<link rel="preload" as="image" href="assets/globe-network.webp" media="(min-width: 760px)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="SimpleX Chat home">
+      <span class="brand-word">SIMPLE</span><svg class="brand-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>
+    </a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="#sovereign">Why SimpleX</a>
+      <a href="#start">How it works</a>
+      <a href="#trust">Security</a>
+      <a href="#people">Community</a>
+      <a href="https://simplex.chat/docs/guide/readme.html">Guide</a>
+      <a class="btn btn-primary btn-sm" href="https://simplex.chat/downloads/">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO: dark band. Copy sits on a solid navy surface; the globe image never runs under text. -->
+<section class="hero" id="top" aria-labelledby="hero-h">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Private messaging</p>
+      <h1 id="hero-h">Your messages.<br>Your network.<br>No one in the middle.</h1>
+      <p class="lede">No user identity. No phone number. No central server. Your contacts stay on your device and you connect by invitation.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://simplex.chat/downloads/">Download SimpleX</a>
+        <a class="link-arrow on-dark" href="#start">How it works</a>
+      </div>
+      <p class="platforms">iOS · Android · macOS · Windows · Linux</p>
+    </div>
+    <figure class="hero-art">
+      <picture>
+        <source media="(max-width: 759px)" srcset="assets/globe-network-mobile.webp" type="image/webp">
+        <source srcset="assets/globe-network.webp" type="image/webp">
+        <img src="assets/globe-network.jpg" width="1440" height="800" alt="Earth at night from space, continents lit by city lights and joined by glowing arcs; no single point where the arcs meet." fetchpriority="high">
+      </picture>
+    </figure>
+  </div>
+</section>
+
+<!-- SOVEREIGNTY: the difference, in three claims, beside the network illustration. -->
+<section class="band ice" id="sovereign" aria-labelledby="sov-h">
+  <div class="wrap two-col">
+    <div class="col-text">
+      <h2 id="sov-h">Your connections.<br>Your control.</h2>
+      <p class="sub">Most messengers know who you are and who you talk to. SimpleX is built so that no server can.</p>
+      <dl class="pillars">
+        <div>
+          <dt>No user identity</dt>
+          <dd>There is no account, number or username that identifies you across the network.</dd>
+        </div>
+        <div>
+          <dt>No central server</dt>
+          <dd>Messages pass through independent relays. You can run your own. No single point of control.</dd>
+        </div>
+        <div>
+          <dt>Your data stays with you</dt>
+          <dd>Contacts, groups and history live on your device, encrypted end to end at every hop.</dd>
+        </div>
+      </dl>
+      <a class="link-arrow" href="https://simplex.chat/docs/protocol/overview-tjr.html">How privacy works</a>
+      <p class="qualify">Protection depends on your device, settings and threat model.</p>
+    </div>
+    <figure class="col-art">
+      <picture>
+        <source srcset="assets/sovereign-network.webp" type="image/webp">
+        <img src="assets/sovereign-network.jpg" width="1280" height="960" loading="lazy" alt="Isometric illustration: laptops and phones labelled You connect through three independent relay nodes. Each link carries a padlock. Side notes read peer-to-peer routing via independent relays, end-to-end encryption at every hop, no central server, no user registry.">
+      </picture>
+      <figcaption>Simplified network illustration</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- START -->
+<section class="band" id="start" aria-labelledby="start-h">
+  <div class="wrap two-col">
+    <div class="col-text">
+      <h2 id="start-h">Start a conversation.</h2>
+      <ol class="steps">
+        <li><span class="num" aria-hidden="true">01</span><span>Download the app</span></li>
+        <li><span class="num" aria-hidden="true">02</span><span>Create a local profile</span></li>
+        <li><span class="num" aria-hidden="true">03</span><span>Share a link or scan a QR code</span></li>
+      </ol>
+      <a class="link-arrow" href="https://simplex.chat/docs/guide/readme.html#connect-to-friends">Quick start guide</a>
+    </div>
+    <div class="col-art">
+      <div class="chat-preview" role="img" aria-label="Illustrative chat preview: two short messages and a reply field.">
+        <div class="chat-top"><span>Chat</span></div>
+        <div class="bubble in">Hi there!</div>
+        <div class="bubble out">Nice to meet you!</div>
+        <div class="bubble in">This works great!</div>
+        <div class="chat-field"><span>Message…</span><span class="send" aria-hidden="true"></span></div>
+      </div>
+      <p class="caption">Illustrative app preview</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="band ice" id="trust" aria-labelledby="trust-h">
+  <div class="wrap narrow">
+    <h2 id="trust-h">Trust you can inspect.</h2>
+    <p class="sub">Open source. Reviewed by Trail of Bits.</p>
+    <table class="reports">
+      <caption class="visually-hidden">Independent security reviews</caption>
+      <thead><tr><th scope="col">Year</th><th scope="col">Scope</th><th scope="col">Report</th></tr></thead>
+      <tbody>
+        <tr><td class="year">2022</td><td>Cryptography and networking library (simplexmq)</td><td><a class="link-arrow" href="https://simplex.chat/blog/20221108-simplex-chat-v4.2-security-audit-new-website.html">Read assessment</a></td></tr>
+        <tr><td class="year">2024</td><td>Cryptographic protocol design</td><td><a class="link-arrow" href="https://simplex.chat/blog/20241014-simplex-network-v6-1-security-review-better-calls-user-experience.html">Read review</a></td></tr>
+      </tbody>
+    </table>
+    <p class="qualify">Reviews cover specific components and versions, not every current release.</p>
+    <p class="links-row"><a class="link-arrow" href="https://simplex.chat/security/">Scope, findings and limitations</a><a class="link-arrow" href="https://github.com/simplex-chat/simplex-chat">View source</a></p>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="band" id="people" aria-labelledby="people-h">
+  <div class="wrap two-col align-top">
+    <div class="col-text">
+      <h2 id="people-h">Find your people.</h2>
+      <p class="sub">Explore channels and communities.</p>
+      <a class="link-arrow" href="https://simplex.chat/docs/directory.html">Browse the directory</a>
+    </div>
+    <div class="col-art">
+      <ul class="dir-list">
+        <li><a class="link-arrow" href="https://simplex.chat/docs/directory.html">Technology</a></li>
+        <li><a class="link-arrow" href="https://simplex.chat/docs/directory.html">Privacy</a></li>
+        <li><a class="link-arrow" href="https://simplex.chat/docs/directory.html">Languages</a></li>
+      </ul>
+      <p class="caption">Proposed directory categories</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT: roadmap and support in one section (audit D02) -->
+<section class="band ice" id="project" aria-labelledby="project-h">
+  <div class="wrap two-col align-top">
+    <div class="col-text">
+      <h2 id="project-h">Building what comes next.</h2>
+      <p class="sub">Larger communities. Sustainable servers. Tools for growth.</p>
+      <a class="link-arrow" href="https://github.com/simplex-chat/simplex-chat#roadmap">Explore the planned roadmap</a>
+    </div>
+    <div class="col-text">
+      <h2 class="h2-quiet">Support an independent network.</h2>
+      <p class="sub">SimpleX is funded by its users and supporters, not by selling your data.</p>
+      <p class="links-row"><a class="link-arrow" href="https://github.com/simplex-chat/simplex-chat#please-support-us-with-your-donations">Donate</a><a class="link-arrow" href="https://simplex.chat/#support">Explore investing</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA: heading, one action, All platforms (audit D06) -->
+<section class="band final" aria-labelledby="final-h">
+  <div class="wrap final-row">
+    <h2 id="final-h">Ready to connect?</h2>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://simplex.chat/downloads/">Download SimpleX</a>
+      <a class="link-arrow" href="https://simplex.chat/downloads/">All platforms</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <a class="brand" href="#top" aria-label="SimpleX Chat home"><span class="brand-word">SIMPLE</span><svg class="brand-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></a>
+    <nav aria-label="Product"><h3>Product</h3><a href="https://simplex.chat/downloads/">Downloads</a><a href="https://simplex.chat/docs/guide/readme.html">Guide</a><a href="https://simplex.chat/docs/directory.html">Directory</a></nav>
+    <nav aria-label="Trust"><h3>Trust</h3><a href="https://simplex.chat/security/">Security</a><a href="https://simplex.chat/privacy/">Privacy</a><a href="https://simplex.chat/transparency/">Transparency</a></nav>
+    <nav aria-label="Project"><h3>Project</h3><a href="https://simplex.chat/blog/">Blog</a><a href="https://github.com/simplex-chat/simplex-chat">Source code</a><a href="https://github.com/simplex-chat/simplex-chat#please-support-us-with-your-donations">Support</a></nav>
+    <p class="legal">Independent design concept, October 2026. Not an official SimpleX Chat release. SimpleX and its marks belong to their owners.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menu-btn'),nav=document.getElementById('site-nav');
+  function set(open){btn.setAttribute('aria-expanded',open);nav.classList.toggle('open',open);if(open){var f=nav.querySelector('a');f&&f.focus();}}
+  btn.addEventListener('click',function(){set(btn.getAttribute('aria-expanded')!=='true');});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&btn.getAttribute('aria-expanded')==='true'){set(false);btn.focus();}});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'&&nav.classList.contains('open'))set(false);});
+})();
+</script>
+</body>
+</html>
